@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyHealth : MonoBehaviour //, IDamageable
+public class EnemyHealth : MonoBehaviour, IDamageable
 {
 
     public int startingHealth = 3;

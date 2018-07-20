@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame

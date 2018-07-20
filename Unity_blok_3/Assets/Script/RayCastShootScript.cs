@@ -23,7 +23,8 @@ public class RayCastShootScript : MonoBehaviour {
         lineRenderer = GetComponent<LineRenderer>();
         source = GetComponent<AudioSource>();
         fpsCam = GetComponentInParent<Camera>();
-    
+        
+
     }
 
 
@@ -39,7 +40,7 @@ public class RayCastShootScript : MonoBehaviour {
 
             if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, range))
             {
-                EnemyHealth dmgScript = hit.collider.gameObject.GetComponent<EnemyHealth>();
+                IDamageable dmgScript = hit.collider.gameObject.GetComponent<IDamageable>();
                 if(dmgScript != null)
                 {
                     dmgScript.Damage(damage, hit.point);
@@ -54,8 +55,10 @@ public class RayCastShootScript : MonoBehaviour {
                 lineRenderer.SetPosition(0, gunEnd.position);
                 lineRenderer.SetPosition(1, hit.point);
                 Instantiate(hitParticles, hit.point, Quaternion.identity);
+
+                StartCoroutine(ShotEffect());
             }
-            StartCoroutine(ShotEffect());
+            
         }
        
 	}
