@@ -3,25 +3,19 @@ using System.Collections;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
-
-    public int startingHealth = 3;
     public GameObject hitParticles;
+    public GameObject audioObject;
 
-    private int currentHealth;
 
     void Start()
     {
-        currentHealth = startingHealth;
+        
     }
 
     public void Damage(int damage, Vector3 hitPoint)
     {
+        Instantiate(audioObject, transform.position, Quaternion.identity);
         Destroy(gameObject);
-    }
-
-    void Defeated()
-    {
-        gameObject.SetActive(false);
     }
 
 }

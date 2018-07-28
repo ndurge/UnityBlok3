@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class WinCondition : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public AudioSource fountain;
+
+    // Use this for initialization
+    void Start () {
         var emission = GetComponent<ParticleSystem>().emission;
         emission.enabled = false;
+
+        fountain = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (FindObjectsOfType<EnemyHealth>().Length == 0)
+        if (FindObjectsOfType<EnemyHealth>().Length == 0 && !fountain.isPlaying)
         {
             var emission = GetComponent<ParticleSystem>().emission;
             emission.enabled = true;
+
+            fountain.Play(); 
         }
 
-        print(FindObjectsOfType<EnemyHealth>().Length);
     }
 }
