@@ -5,6 +5,7 @@ using UnityEngine;
 public class WinCondition : MonoBehaviour {
 
     public AudioSource fountain;
+    public GameObject whales;
 
     // Use this for initialization
     void Start () {
@@ -21,7 +22,9 @@ public class WinCondition : MonoBehaviour {
             var emission = GetComponent<ParticleSystem>().emission;
             emission.enabled = true;
 
-            fountain.Play(); 
+            fountain.Play();
+
+            whales.SetActive(true);
         }
 
     }

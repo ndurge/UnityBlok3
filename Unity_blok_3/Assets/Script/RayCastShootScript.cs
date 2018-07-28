@@ -6,9 +6,7 @@ public class RayCastShootScript : MonoBehaviour {
 
     public float fireRate = .25f;
     public float range = 50;
-    public ParticleSystem smokeParticles;
     public GameObject hitParticles;
-    public GameObject shootFlare;
     public int damage = 1;
     public Transform gunEnd;
 
@@ -67,11 +65,9 @@ public class RayCastShootScript : MonoBehaviour {
     {
         lineRenderer.enabled = true;
         source.Play();
-        smokeParticles.Play();
-        shootFlare.SetActive(true);
         yield return shotLength;
         lineRenderer.enabled = false;
-        shootFlare.SetActive(false);
+    
 
     }
 }
