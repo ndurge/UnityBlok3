@@ -12,7 +12,7 @@ public class TextTimer : MonoBehaviour
 
     void Hide()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
 }
