@@ -47,12 +47,16 @@ public class RayCastShootScript : MonoBehaviour {
                 if (hit.rigidbody != null)
                 {
                     hit.rigidbody.AddForce(-hit.normal * 100F);
-                
+                    
                 }
 
                 lineRenderer.SetPosition(0, gunEnd.position);
                 lineRenderer.SetPosition(1, hit.point);
-                Instantiate(hitParticles, hit.point, Quaternion.identity);
+
+                if (hit.transform.GetComponent<EnemyHealth>() != null)
+                {
+                    Instantiate(hitParticles, hit.point, Quaternion.identity);
+                }
 
                 StartCoroutine(ShotEffect());
             }

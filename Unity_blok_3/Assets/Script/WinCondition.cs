@@ -6,6 +6,7 @@ public class WinCondition : MonoBehaviour {
 
     public AudioSource fountain;
     public GameObject whales;
+    public GameObject wintext;
 
     // Use this for initialization
     void Start () {
@@ -25,6 +26,7 @@ public class WinCondition : MonoBehaviour {
             fountain.Play();
 
             whales.SetActive(true);
+            wintext.SetActive(true);
         }
 
     }
